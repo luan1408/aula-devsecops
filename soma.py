@@ -1,19 +1,15 @@
 import argparse
 
-if __name__ == '__main__':
+parser = argparse.ArgumentParser()
+parser.add_argument('-a', required=True, help='Primeiro número')
+parser.add_argument('-b', required=True, help='Segundo número')
+args = parser.parse_args()
 
-  parser = argparse.ArgumentParser(
-        usage='%(prog)s --a a--b b',
-        formatter_class=argparse.RawDescriptionHelpFormatter
-    )
-  parser.add_argument("-a", "--a",type=str, required=True)
-  parser.add_argument("-b", "--b",type=str, required=True)
-
-  args = parser.parse_args()
-
-  a=args.a
-  b=args.b
-
-  soma=int(a)+int(b)
-
-  print(soma)
+try:
+    a = int(args.a)
+    b = int(args.b)
+    soma = a + b
+    print(f"A soma é: {soma}")
+except ValueError:
+    print("Erro: os valores de 'a' e 'b' devem ser números inteiros.")
+    exit(1)
