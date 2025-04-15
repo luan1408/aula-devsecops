@@ -4,10 +4,7 @@ name: CI
 
 
 on:
-  
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
 
@@ -20,19 +17,15 @@ jobs:
    
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       
-
-      # Runs a single command using the runners shell
       - name: Build
         run: echo "Build"
 
-# Runs a single command using the runners shell
+
       - name: Test
         run: echo "Test"
         
- # Runs a single command using the runners shell
       - name: Deploy
         run: echo "Deploy"
       
